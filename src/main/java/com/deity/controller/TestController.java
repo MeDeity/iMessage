@@ -1,6 +1,8 @@
 package com.deity.controller;
 
 import com.deity.entity.Message;
+import com.deity.entity.MessageJPA;
+import com.deity.mapper.MessageDao;
 import com.deity.mapper.MessageMapper;
 import com.deity.service.MessageService;
 import org.apache.log4j.Logger;
@@ -22,6 +24,10 @@ public class TestController {
     private MessageService messageService;
     @Autowired
     private MessageMapper messageMapper;
+
+    @Autowired
+    private MessageDao messageDao;
+
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String testIndex(){
         logger.info("invoke testIndex");
@@ -39,5 +45,12 @@ public class TestController {
     public String obtainMessage(int id){
         Message message = messageMapper.obtainMessage(id);
         return "obtainMessage success:"+message.getMessage();
+    }
+
+
+    @RequestMapping(value = "queryByJpa")
+    public String obtainMessageByJpa(int id){
+        MessageJPA message = messageDao.findOne(id);
+        return "obtainMessageByJpa success:"+message.getMessage();
     }
 }
