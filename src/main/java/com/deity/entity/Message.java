@@ -1,7 +1,7 @@
 package com.deity.entity;
 
 /**
- * 用户实体类
+ * 用户实体类(MyBatis)
  * Created by Deity on 2018/1/9.
  */
 
@@ -9,7 +9,7 @@ public class Message {
     /**编号*/
     private int id;
     /**消息内容*/
-    private String content;
+    private String message;
     /**接收人Id*/
     private int receiverId;
     /**发送人Id*/
@@ -23,12 +23,12 @@ public class Message {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getMessage() {
+        return message;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public int getReceiverId() {
